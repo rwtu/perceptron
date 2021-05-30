@@ -5,18 +5,18 @@
 # examples: list of examples for training the perceptron, [boolean, [(list of 1s and 0s)]] 
 # passes: number of passes perceptrons hould make through the list of examples 
 def perceptron(threshold, adjustment, weights, examples, passes):
-    print(f"Starting weights:  {str(weights)}")
-    print(f"Threshold:  {threshold}     Adjustment:  {adjustment}")
+    print(f"Starting weights: {str(weights)}")
+    print(f"Threshold: {threshold} Adjustment: {adjustment}")
     for x in range (1, passes+1):
-        print(f"\nPass  {x}\n")
+        print(f"\nPass {x}\n")
 
         for i in range (0, len(examples)):
             answer = examples[i][0]
             inputs = examples[i][1]
             prediction = makePrediction(threshold, weights, inputs)
         
-            print(f"inputs:  {inputs}")
-            print(f"prediction:  {prediction}     answer:  {answer}")
+            print(f"inputs: {inputs}")
+            print(f"prediction: {prediction} answer: {answer}")
             adjust(adjustment, weights, inputs, prediction, answer)
             print("adjusted weights: " + str(weights))
 
@@ -53,5 +53,5 @@ def adjust(adjustment, weights, inputs, prediction, answer):
 
 
 # Test Cases
-# perceptron(0.5, 0.1, [-0.5, 0, 0.5, 0, -0.5], [[True, [1,1,1,1,0]], [False, [1,1,1,1,1]], [False, [0,0,0,0,0]], [False, [0,0,1,1,0]], [False, [1,0,1,0,1]], [False, [1,0,1,0,0]], [False, [0,1,0,1,1]], [False, [0,1,0,1,0]], [False, [0,0,1,0,0]], [False, [0,0,0,1,0]]], 4)
+perceptron(0.5, 0.1, [-0.5, 0, 0.5, 0, -0.5], [[True, [1,1,1,1,0]], [False, [1,1,1,1,1]], [False, [0,0,0,0,0]], [False, [0,0,1,1,0]], [False, [1,0,1,0,1]], [False, [1,0,1,0,0]], [False, [0,1,0,1,1]], [False, [0,1,0,1,0]], [False, [0,0,1,0,0]], [False, [0,0,0,1,0]]], 4)
 # perceptron(0.4, 0.09,  [0.3, -0.6], [[True, [1,1]], [False, [0,0]],[True, [0,1]], [True, [1,0]]], 10)
